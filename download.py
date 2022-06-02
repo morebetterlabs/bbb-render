@@ -70,7 +70,7 @@ class Downloader:
         self._get('slides_new.xml')
 
         self._get('video/webcams.mp4')
-        # self._get('deskshare/deskshare.webm')
+        self._get('deskshare/deskshare.mp4')
 
 
 def main(argv):

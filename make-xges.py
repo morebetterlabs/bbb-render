@@ -115,7 +115,7 @@ class Presentation:
     def set_track_caps(self):
         # Set frame rate and audio rate based on webcam capture
         asset = self._get_asset(
-            os.path.join(self.opts.basedir, 'video/webcams.webm'))
+            os.path.join(self.opts.basedir, 'video/webcams.mp4'))
         info = asset.get_info()
 
         video_info = info.get_video_streams()[0]
@@ -163,7 +163,7 @@ class Presentation:
     def add_webcams(self):
         layer = self._add_layer('Camera')
         asset = self._get_asset(
-            os.path.join(self.opts.basedir, 'video/webcams.webm'))
+            os.path.join(self.opts.basedir, 'video/webcams.mp4'))
         dims = self._get_dimensions(asset)
         if self.opts.stretch_webcam or self.opts.crop_webcam:
             dims = (dims[0] * 16/12, dims[1])
@@ -314,7 +314,7 @@ class Presentation:
 
         layer = self._add_layer('Deskshare')
         asset = self._get_asset(
-            os.path.join(self.opts.basedir, 'deskshare/deskshare.webm'))
+            os.path.join(self.opts.basedir, 'deskshare/deskshare.mp4'))
         width, height = self._constrain(self._get_dimensions(asset),
                                         (self.slides_width, self.opts.height))
         duration = asset.props.duration
