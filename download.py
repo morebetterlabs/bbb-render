@@ -62,15 +62,21 @@ class Downloader:
                        for img in doc.iterfind('.//{http://www.w3.org/2000/svg}image')}:
             self._get(imgurl)
 
-        self._get('panzooms.xml')
-        self._get('cursor.xml')
-        self._get('deskshare.xml')
-        self._get('presentation_text.json')
-        self._get('captions.json')
-        self._get('slides_new.xml')
+        components = [
+            'panzooms.xml',
+            'cursor.xml',
+            'deskshare.xml',
+            'presentation_text.json',
+            'captions.json',
+            'slides_new.xml',
+            'video/webcams.mp4',
+            'deskshare/deskshare.mp4']
 
-        self._get('video/webcams.mp4')
-        self._get('deskshare/deskshare.mp4')
+        for item in components:
+            try:
+                self._get(item)
+            except Exception:
+                f"Component {item} not available in presentation"
 
 
 def main(argv):
